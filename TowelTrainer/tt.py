@@ -50,7 +50,7 @@ class Contraption:
 		while True:
 			self.handle_events()
 			time.sleep_ms(100)
-			gc.collect()
+			#gc.collect()
 			
 			
 	def handle_events(self):
@@ -197,12 +197,11 @@ class Contraption:
 			self.blue.deinit()
 
 	def start_webserver(self):
-		gc.enable()
+		
 		self.set_led(blue=1020, green=1020)
 		print("Starting Web Configuration Mode")
 	
 		addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
-		socket.close()
 		s = socket.socket()
 		s.bind(addr)
 		s.listen(1)
@@ -260,7 +259,11 @@ class Contraption:
 
 			cl.send(response)
 			cl.close()
+
 			if (verb == 'post'):
+				s.close()
+				gc.collect()
+
 				self.set_led(red=1020)
 				time.sleep_ms(400)
 				self.set_led(blue=1020)
@@ -270,7 +273,6 @@ class Contraption:
 
 				if not self.is_endstop_bottom_activated():
 					self.reset_machine()
-				s.close()
 				return
 
 	def apply_config(self):
@@ -322,7 +324,8 @@ class Contraption:
 			json.dump(data, f)
 
 	def __init__(self):
-		
+		gc.enable()
+
 		self.is_running = False
 		self.is_resetting = False
 		self.passes_remaining = 0
