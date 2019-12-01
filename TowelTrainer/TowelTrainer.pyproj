@@ -26,18 +26,7 @@
   <ItemGroup>
     <Compile Include="boot.py" />
     <Compile Include="main.py" />
-    <Compile Include="MicroWebSrv2\mainweb.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\httpRequest.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\httpResponse.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\libs\urlUtils.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\libs\XAsyncSockets.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\microWebSrv2.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\mods\PyhtmlTemplate.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\mods\WebSockets.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\webRoute.py" />
-    <Compile Include="MicroWebSrv2\MicroWebSrv2\__init__.py" />
     <Compile Include="tt.py" />
-    <Compile Include="kent.py" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env3.7\">
@@ -57,53 +46,7 @@
   <ItemGroup>
     <Content Include="config.json" />
     <Content Include="index.html" />
-    <Content Include="MicroWebSrv2\bootstrap.min.css" />
-    <Content Include="MicroWebSrv2\bootstrap.min.js" />
-    <Content Include="MicroWebSrv2\docs\CNAME" />
-    <Content Include="MicroWebSrv2\docs\img\wschat.png" />
-    <Content Include="MicroWebSrv2\docs\index.md" />
-    <Content Include="MicroWebSrv2\docs\_config.yml" />
-    <Content Include="MicroWebSrv2\img\microWebSrv2.png" />
-    <Content Include="MicroWebSrv2\img\microWebSrv2.svg" />
-    <Content Include="MicroWebSrv2\img\pyhtml_code.png" />
-    <Content Include="MicroWebSrv2\img\pyhtml_page.png" />
-    <Content Include="MicroWebSrv2\img\wschat.png" />
-    <Content Include="MicroWebSrv2\LICENSE.md" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\libs\__pycache__\urlUtils.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\libs\__pycache__\XAsyncSockets.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\mods\__pycache__\PyhtmlTemplate.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\mods\__pycache__\WebSockets.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\__pycache__\httpRequest.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\__pycache__\httpResponse.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\__pycache__\microWebSrv2.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\__pycache__\webRoute.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\MicroWebSrv2\__pycache__\__init__.cpython-37.pyc" />
-    <Content Include="MicroWebSrv2\README.md" />
-    <Content Include="MicroWebSrv2\SSL-Cert\openhc2.crt" />
-    <Content Include="MicroWebSrv2\SSL-Cert\openhc2.key" />
-    <Content Include="MicroWebSrv2\www\favicon.ico" />
-    <Content Include="MicroWebSrv2\www\index.html" />
-    <Content Include="MicroWebSrv2\www\pdf.png" />
-    <Content Include="MicroWebSrv2\www\style.css" />
-    <Content Include="MicroWebSrv2\www\test.pdf" />
-    <Content Include="MicroWebSrv2\www\test.pyhtml" />
-    <Content Include="MicroWebSrv2\www\wschat.html" />
-    <Content Include="MicroWebSrv2\www\wstest.html" />
     <Content Include="QuickCommands.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MicroWebSrv2\" />
-    <Folder Include="MicroWebSrv2\docs\" />
-    <Folder Include="MicroWebSrv2\docs\img\" />
-    <Folder Include="MicroWebSrv2\img\" />
-    <Folder Include="MicroWebSrv2\MicroWebSrv2\" />
-    <Folder Include="MicroWebSrv2\MicroWebSrv2\libs\" />
-    <Folder Include="MicroWebSrv2\MicroWebSrv2\libs\__pycache__\" />
-    <Folder Include="MicroWebSrv2\MicroWebSrv2\mods\" />
-    <Folder Include="MicroWebSrv2\MicroWebSrv2\mods\__pycache__\" />
-    <Folder Include="MicroWebSrv2\MicroWebSrv2\__pycache__\" />
-    <Folder Include="MicroWebSrv2\SSL-Cert\" />
-    <Folder Include="MicroWebSrv2\www\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
