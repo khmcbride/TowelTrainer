@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TowelTrainer", "TowelTrainer\TowelTrainer.pyproj", "{0866D5FB-7025-484D-B33B-2205AC057922}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0866D5FB-7025-484D-B33B-2205AC057922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0866D5FB-7025-484D-B33B-2205AC057922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {329A45A9-C808-4DFD-B3AF-4ACB688683D5}
+	EndGlobalSection
+EndGlobal

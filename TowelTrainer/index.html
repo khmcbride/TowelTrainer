@@ -1,0 +1,349 @@
+﻿<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Tower Trainer Machine Config</title>
+    <style>
+        body {background-color: black}
+
+        .heading {
+            color: #0062cc;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .desc {
+            color: #0062cc;
+            padding: 0px 0px 0px 40px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container-fluid {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto
+        }
+
+        .input-group-append, .input-group-prepend {
+            display: -ms-flexbox;
+            display: flex
+        }
+
+            .input-group-append .btn, .input-group-prepend .btn {
+                position: relative;
+                z-index: 2
+            }
+
+                .input-group-append .btn:focus, .input-group-prepend .btn:focus {
+                    z-index: 3
+                }
+
+                .input-group-append .btn + .btn, .input-group-append .btn + .input-group-text, .input-group-append .input-group-text + .btn, .input-group-append .input-group-text + .input-group-text, .input-group-prepend .btn + .btn, .input-group-prepend .btn + .input-group-text, .input-group-prepend .input-group-text + .btn, .input-group-prepend .input-group-text + .input-group-text {
+                    margin-left: -1px
+                }
+
+        .input-group-prepend {
+            margin-right: -1px
+        }
+
+        .input-group-append {
+            margin-left: -1px
+        }
+
+        .input-group-text {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: .375rem .75rem;
+            margin-bottom: 0;
+            margin-top: 26px;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #0062cc;
+            border: 1px solid #ced4da;
+            border-radius: .25rem
+        }
+        .flex-wrap {
+            -ms-flex-wrap: wrap !important;
+            flex-wrap: wrap !important
+        }
+
+        .flex-nowrap {
+            -ms-flex-wrap: nowrap !important;
+            flex-wrap: nowrap !important
+        }
+
+        .input-group-text {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: .375rem .75rem;
+            margin-bottom: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: black;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #0062cc;
+            border: 1px solid #ced4da;
+            border-radius: .25rem
+        }
+
+            .input-group-text input[type=checkbox], .input-group-text input[type=radio] {
+                margin-top: 0
+            }
+        .form-control {
+            display: block;
+            width: 90%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            .form-control {
+                transition: none
+            }
+        }
+
+        .form-control::-ms-expand {
+            background-color: transparent;
+            border: 0
+        }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 .2rem rgba(0,123,255,.25)
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: #6c757d;
+            opacity: 1
+        }
+
+        .form-control::-moz-placeholder {
+            color: #6c757d;
+            opacity: 1
+        }
+
+        .form-control:-ms-input-placeholder {
+            color: #6c757d;
+            opacity: 1
+        }
+
+        .form-control::-ms-input-placeholder {
+            color: #6c757d;
+            opacity: 1
+        }
+
+        .form-control::placeholder {
+            color: #6c757d;
+            opacity: 1
+        }
+
+        .form-control:disabled, .form-control[readonly] {
+            background-color: #e9ecef;
+            opacity: 1
+        }
+
+        select.form-control:focus::-ms-value {
+            color: #495057;
+            background-color: #fff
+        }
+
+        .form-control-file, .form-control-range {
+            display: block;
+            width: 100%
+        }
+
+        .col-form-label {
+            padding-top: calc(.375rem + 1px);
+            padding-bottom: calc(.375rem + 1px);
+            margin-bottom: 0;
+            font-size: inherit;
+            line-height: 1.5
+        }
+
+        .flex-nowrap {
+            -ms-flex-wrap: nowrap !important;
+            flex-wrap: nowrap !important
+        }
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: .5rem .75rem;
+            font-size: 2rem;
+            line-height: 2;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            .btn {
+                transition: none
+            }
+        }
+
+        .btn:hover {
+            color: #212529;
+            text-decoration: none
+        }
+
+        .btn.focus, .btn:focus {
+            outline: 0;
+            box-shadow: 0 0 0 .2rem rgba(0,123,255,.25)
+        }
+
+        .btn.disabled, .btn:disabled {
+            opacity: .65
+        }
+
+        a.btn.disabled, fieldset:disabled a.btn {
+            pointer-events: none
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff
+        }
+
+            .btn-primary:hover {
+                color: #fff;
+                background-color: #0069d9;
+                border-color: #0062cc
+            }
+
+            .btn-primary.focus, .btn-primary:focus {
+                box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
+            }
+
+            .btn-primary.disabled, .btn-primary:disabled {
+                color: #fff;
+                background-color: #007bff;
+                border-color: #007bff
+            }
+
+            .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+                color: #fff;
+                background-color: #0062cc;
+                border-color: #005cbf
+            }
+
+                .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+                    box-shadow: 0 0 0 .2rem rgba(38,143,255,.5)
+                }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Towel Trainer Configuration Screen</h1>
+        <form id="myForm">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Rotation Rate (Hz)</span>
+                    <h3 class="desc">Frequency used to pulse the towel rotation motors (400 steps per full rotation)</h3>
+                </div>
+                <input id="rotation_rate" type="text" class="form-control" value="[rotation_rate]" name="rotation_rate">
+            </div>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Rotation Headstart (ms)</span>
+                    <h3 class="desc">Time in ms to allow the towel to spin before starting the tape sled</h3>
+                </div>
+                <input id="rotation_headstart_ms" type="text" class="form-control" value="[rotation_headstart_ms]" name="rotation_headstart_ms">
+            </div>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Sled Rate (Hz)</span>
+                    <h3 class="desc">Frequency used to pulse the sled motor (200 steps per full rotation)</h3>
+                </div>
+                <input id="sled_rate" type="text" class="form-control" value="[sled_rate]" name="sled_rate">
+            </div>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Sled Passes (ms)</span>
+                    <h3 class="desc">Number of passes for the tape sled to travel between the two end stops</h3>
+                </div>
+                <input id="sled_passes" type="text" class="form-control" value="[sled_passes]" name="sled_passes">
+            </div>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Sled Endstop Pause (ms)</span>
+                    <h3 class="desc">Time in ms to allow the towel to spin  at the endstop between each sled pass</h3>
+                </div>
+                <input id="sled_endstop_pause_ms" type="text" class="form-control" value="[sled_endstop_pause_ms]" name="sled_endstop_pause_ms">
+            </div> <br />
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+    <script>
+        window.addEventListener("load", function () {
+            function sendData() {
+                var XHR = new XMLHttpRequest();
+
+                // Bind the FormData object and the form element
+                var FD = new FormData(form);
+
+                // Define what happens on successful data submission
+                //XHR.addEventListener("load", function (event) {
+                //    alert(event.target.responseText);
+                //});
+
+                // Define what happens in case of error
+                XHR.addEventListener("error", function (event) {
+                    alert('Oops! Something went wrong.');
+                });
+
+                // Set up our request
+                XHR.open("POST", "http://192.168.4.1");
+
+                // The data sent is what the user provided in the form
+                XHR.send(FD);
+            }
+
+            // Access the form element...
+            var form = document.getElementById("myForm");
+
+            // ...and take over its submit event.
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                sendData();
+            });
+        });
+    </script>
+</body>
+
+</html>

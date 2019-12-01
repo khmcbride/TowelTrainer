@@ -1,0 +1,7 @@
+{
+  "rotation_rate": 150,
+  "rotation_headstart_ms": 2000, 
+  "sled_rate": 100,
+  "sled_passes": 3,
+  "sled_endstop_pause_ms":  1000
+}

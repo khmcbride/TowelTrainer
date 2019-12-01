@@ -1,0 +1,3 @@
+.\ampy.exe -p COM7 -b 115200 ls
+
+.\ampy.exe -p COM7 -b 115200 put ../../tt.py
