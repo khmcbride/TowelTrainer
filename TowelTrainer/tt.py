@@ -83,13 +83,13 @@ class Contraption:
 		self.is_resetting = True
 		self.set_led(red=1020,blue=1020)
 		# bring tape roller sled to rear position until rear endstop is hit
-		self.set_sled_dir_toward_bottom()
+		self.set_sled_dir_toward_top()
 		self.sm_sled.begin_rotation()
 		
 		
 
 	def run_machine(self):
-		if self.is_endstop_bottom_activated() == False:
+		if self.is_endstop_top_activated() == False:
 			print('Cannot start machine until it has been reset.')
 			self.set_led(red=1020, green=1020)
 			return
@@ -101,7 +101,7 @@ class Contraption:
 		self.set_led(blue=1020)
 		self.is_running = True
 		self.passes_remaining = self.SLED_PASSES
-		self.set_sled_dir_toward_top()
+		self.set_sled_dir_toward_bottom()
 		# enable and start spinning towel motors clockwise 
 		
 		self.sm_towel.begin_rotation()
@@ -123,7 +123,11 @@ class Contraption:
 				self.stop_all_motors()
 				print('Finished...')
 				self.set_led(red=1020)
-				
+		elif self.is_resetting:
+			self.set_sled_dir_toward_bottom()
+			self.stop_all_motors()
+			self.set_led(green=1020)
+			self.is_resetting = False		
 
 	def hit_bottom(self):
 		#print('Hit bottom {}'.format(self.p_hit_bottom.value()))
@@ -139,11 +143,7 @@ class Contraption:
 				self.stop_all_motors()
 				print('Finished...')
 				self.set_led(green=1020)
-		elif self.is_resetting:
-			self.set_sled_dir_toward_top()
-			self.stop_all_motors()
-			self.set_led(green=1020)
-			self.is_resetting = False
+		
 
 	def stop_all_motors(self):
 		self.sm_towel.halt_rotation()
@@ -197,7 +197,8 @@ class Contraption:
 			self.blue.deinit()
 
 	def start_webserver(self):
-		
+
+		self.stop_all_motors()
 		self.set_led(blue=1020, green=1020)
 		print("Starting Web Configuration Mode")
 	
