@@ -80,12 +80,15 @@ class Contraption:
 		else:
 			print('!!!resetting machine!!!')
 		
-		self.is_resetting = True
-		self.set_led(red=1020,blue=1020)
-		# bring tape roller sled to rear position until rear endstop is hit
-		self.set_sled_dir_toward_top()
-		self.sm_sled.begin_rotation()
-		
+	#Added by GKP	Attempt to prevent reset if sled is already full top
+		if self.is_endstop_top_activated() == False: 
+	#End Added by GKP - statements below moved to be within if clause	
+			self.is_resetting = True
+			self.set_led(red=1020,blue=1020)
+			# bring tape roller sled to rear position until rear endstop is hit
+			self.set_sled_dir_toward_top()
+			self.sm_sled.begin_rotation()
+
 		
 
 	def run_machine(self):
@@ -123,6 +126,9 @@ class Contraption:
 				self.stop_all_motors()
 				print('Finished...')
 				self.set_led(red=1020)
+		#Added by GKP : When normally done, it was being set to red to indicate finished. Better Green to indicate ready for next run.
+				self.set_led(green=1020)
+		#End Added by GKP
 		elif self.is_resetting:
 			self.set_sled_dir_toward_bottom()
 			self.stop_all_motors()
@@ -272,8 +278,12 @@ class Contraption:
 				self.set_led(green=1020)
 				time.sleep_ms(400)
 
-				if not self.is_endstop_bottom_activated():
+	#Added by GKP
+				#if not self.is_endstop_bottom_activated(): 
+					#self.reset_machine()
+				if not self.is_endstop_top_activated():
 					self.reset_machine()
+	#End Added by GKP				
 				return
 
 	def apply_config(self):
@@ -378,12 +388,13 @@ class Contraption:
 
 		self.set_led(green=1020)
 		time.sleep_ms(400)
-
-		if not self.is_endstop_bottom_activated():
+	#Added by GKP
+		#if not self.is_endstop_bottom_activated():
+		#	self.reset_machine()
+		if not self.is_endstop_top_activated():
 			self.reset_machine()
-
+	#End Added by GKP	
 		print('\n...waiting for input')
-		
 		self.main_loop()
 		print('done...')
 
