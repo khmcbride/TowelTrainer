@@ -131,7 +131,7 @@ class Contraption:
 			if self.passes_remaining == 0:
 				#  Added GKP
 				self.sm_sled.halt_rotation()
-				time.sleep(1)
+				time.sleep(2)
 				#End Added GKP
 				self.stop_all_motors()
 				print('Finished...')
