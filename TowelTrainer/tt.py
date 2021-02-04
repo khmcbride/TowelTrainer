@@ -129,6 +129,10 @@ class Contraption:
 			self.passes_remaining -= 1
 			print('Hit top, {} passes remain.'.format(self.passes_remaining))
 			if self.passes_remaining == 0:
+				#  Added GKP
+				self.sm_sled.halt_rotation()
+				time.sleep(2)
+				#End Added GKP
 				self.stop_all_motors()
 				print('Finished...')
 				self.set_led(red=1020)
