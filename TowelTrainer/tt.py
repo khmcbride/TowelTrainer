@@ -129,6 +129,7 @@ class Contraption:
 			self.passes_remaining -= 1
 			print('Hit top, {} passes remain.'.format(self.passes_remaining))
 			if self.passes_remaining == 0:
+				self.sm_sled.halt_rotation()
 				time.sleep(1)
 				self.stop_all_motors()
 				print('Finished...')
