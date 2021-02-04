@@ -33,6 +33,13 @@ class Contraption:
 
 	DEBUG_MODE = False
 
+	#KHM
+	#I can't remember if the switches use a pull-up or pull-down on the input pin.
+	#I am assuming pull-up and closing the switch beings it to ground.  That would make a closed switch 0 and open 1
+	#If this is not the case, switch the values of the two constants below
+	SWITCH_CLOSED = 0
+	SWITCH_OPEN = 1
+	
 	@staticmethod
 	def print(string):
 		if Contraption.DEBUG_MODE:
@@ -80,19 +87,18 @@ class Contraption:
 		else:
 			print('!!!resetting machine!!!')
 		
-	#Added by GKP	Attempt to prevent reset if sled is already full top
-		if self.is_endstop_top_activated() == False: 
-	#End Added by GKP - statements below moved to be within if clause	
+		#KHM directly test pin state
+		if self.is_endstop_top_activated() == False or self.p_hit_top.value() == self.SWITCH_OPEN: 
 			self.is_resetting = True
 			self.set_led(red=1020,blue=1020)
-			# bring tape roller sled to rear position until rear endstop is hit
+			# bring tape roller sled to top position until top endstop is hit
 			self.set_sled_dir_toward_top()
 			self.sm_sled.begin_rotation()
 
 		
 
 	def run_machine(self):
-		if self.is_endstop_top_activated() == False:
+		if self.is_endstop_top_activated() == False or self.p_hit_top.value() == self.SWITCH_OPEN:
 			print('Cannot start machine until it has been reset.')
 			self.set_led(red=1020, green=1020)
 			return
@@ -126,9 +132,9 @@ class Contraption:
 				self.stop_all_motors()
 				print('Finished...')
 				self.set_led(red=1020)
-		#Added by GKP : When normally done, it was being set to red to indicate finished. Better Green to indicate ready for next run.
+				#Added by GKP : When normally done, it was being set to red to indicate finished. Better Green to indicate ready for next run.
 				self.set_led(green=1020)
-		#End Added by GKP
+				#End Added by GKP
 		elif self.is_resetting:
 			self.set_sled_dir_toward_bottom()
 			self.stop_all_motors()
@@ -278,12 +284,9 @@ class Contraption:
 				self.set_led(green=1020)
 				time.sleep_ms(400)
 
-	#Added by GKP
-				#if not self.is_endstop_bottom_activated(): 
-					#self.reset_machine()
-				if not self.is_endstop_top_activated():
+				#KHM directly test pin state also
+				if not self.is_endstop_top_activated() or self.p_hit_top.value() == self.SWITCH_OPEN:
 					self.reset_machine()
-	#End Added by GKP				
 				return
 
 	def apply_config(self):
@@ -388,12 +391,11 @@ class Contraption:
 
 		self.set_led(green=1020)
 		time.sleep_ms(400)
-	#Added by GKP
-		#if not self.is_endstop_bottom_activated():
-		#	self.reset_machine()
-		if not self.is_endstop_top_activated():
+	
+		#KHM directly test pin state also
+		if not self.is_endstop_top_activated() or self.p_hit_top.value() == self.SWITCH_OPEN:
 			self.reset_machine()
-	#End Added by GKP	
+	
 		print('\n...waiting for input')
 		self.main_loop()
 		print('done...')
